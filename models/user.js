@@ -36,6 +36,15 @@ module.exports = (sequelize, DataTypes) => {
       },
       password: {
         type: DataTypes.STRING,
+        validate: {
+          checkPassword: (value) => {
+            if (!/^(?=.*?[a-z])(?=.*?[0-9]).{6,}$/.test(String(value))) {
+              throw new Error(
+                "Password at least 6 characters and contains at least one number and one lowercase"
+              );
+            }
+          },
+        },
       },
       gender: DataTypes.STRING,
       address: DataTypes.STRING,
