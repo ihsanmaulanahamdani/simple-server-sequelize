@@ -6,7 +6,8 @@ const statusMessage = require("../helpers/status.message");
 module.exports = {
   createStore: async (req, res) => {
     try {
-      const payload = req.body;
+      const UserId = req.decoded.id;
+      const payload = { UserId, ...req.body };
 
       const store = await Store.create(payload);
 

@@ -43,7 +43,7 @@ module.exports = {
 
           const resData = {
             name: user.firstName,
-            token: `Bearer ${token}`,
+            token,
             refreshToken,
           };
 

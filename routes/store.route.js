@@ -11,7 +11,7 @@ const sellerAuthorization = require("../middlewares/authorization");
 router.get("/store/:id", getStore);
 router.use(authentication);
 router.use(sellerAuthorization);
-router.post("/create", createStore);
-router.delete("/delete/:id", deleteStore);
+router.post("/store/create", createStore);
+router.delete("/store/delete/:id", deleteStore);
 
 module.exports = router;
