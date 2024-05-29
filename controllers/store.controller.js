@@ -1,5 +1,7 @@
+// Packages
+const { Op } = require("sequelize");
 // Models
-const { Store, User } = require("../models");
+const { Store } = require("../models");
 // Helpers
 const statusMessage = require("../helpers/status.message");
 
@@ -20,7 +22,7 @@ module.exports = {
     try {
       const id = req.params.id;
 
-      const store = await Store.findByPk(id);
+      const store = await Store.findOne({ where: { id: { [Op.eq]: id } } });
 
       statusMessage(res, 201, true, "Get Store!", store);
     } catch (error) {
