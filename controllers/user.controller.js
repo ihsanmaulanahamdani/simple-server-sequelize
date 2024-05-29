@@ -42,8 +42,9 @@ module.exports = {
           });
 
           const resData = {
+            id: user.id,
             name: user.firstName,
-            token,
+            token, // store in localStorage (client side)
             refreshToken,
           };
 

@@ -6,10 +6,13 @@ const {
   getStore,
 } = require("../controllers/store.controller");
 const authentication = require("../middlewares/authentication");
-const sellerAuthorization = require("../middlewares/authorization");
+const {
+  sellerAuthorization,
+  buyerAuthorization,
+} = require("../middlewares/authorization");
 
-router.get("/store/:id", getStore);
 router.use(authentication);
+router.get("/store/:id", buyerAuthorization, getStore);
 router.use(sellerAuthorization);
 router.post("/store/create", createStore);
 router.delete("/store/delete/:id", deleteStore);

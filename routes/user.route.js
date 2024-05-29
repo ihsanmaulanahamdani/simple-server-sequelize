@@ -8,7 +8,6 @@ const {
   updateUser,
 } = require("../controllers/user.controller");
 const authentication = require("../middlewares/authentication");
-const sellerAuthorization = require("../middlewares/authorization");
 
 router.post("/register", register);
 router.post("/signin", signIn);
